@@ -165,7 +165,7 @@
             android:layout_width="wrap_content"
     		android:layout_height="fill_parent"
             android:text="@string/new_game"
-    		android:onClick="selectDialog"/>
+    		android:onClick="startNewGame"/>
     </TableRow>
 
 </TableLayout>

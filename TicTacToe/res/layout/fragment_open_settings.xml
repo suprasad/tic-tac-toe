@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,17 +10,24 @@
     tools:context="com.tic.tac.toe.OpenSettings$PlaceholderFragment" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/play_settings" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/setting"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
     
-    <ToggleButton 
-    	android:id="@+id/togglebutton"
-    	android:layout_width="wrap_content"
-   		android:layout_height="wrap_content"
-   		android:layout_gravity="center"
-    	android:textOn="Sound on"
-    	android:textOff="Sound off"
-    	android:onClick="onToggleClicked"/>
+    <ToggleButton
+        android:id="@+id/togglebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="126dp"
+        android:onClick="onToggleClicked"
+        android:textOff="Sound off"
+        android:textOn="Sound on" />
 
-</LinearLayout>
+</RelativeLayout>

@@ -23,7 +23,7 @@ public class StartNewPlay extends ActionBarActivity {
 	
 	int player, winner, score1, score2;
 	private int[][] tttBoard = new int[3][3];
-	private String selectSymbol1, selectSymbol2;
+	private String selectSymbol1, selectSymbol2, winnerMessage;
 	private static final String TAG = "Test";
 	final Context con = this;
 
@@ -100,14 +100,14 @@ public class StartNewPlay extends ActionBarActivity {
 		int win = check_winner();
 		
 		if (win == 0 && check_Tboardfull()){
-			Toast.makeText(getApplicationContext(), "It's a tie!!!", Toast.LENGTH_LONG).show();
+			winnerMessage = "It's a tie!!!";
 			return true;
 		} else if(win == 1){
-			Toast.makeText(getApplicationContext(), "Winner - Player 1", Toast.LENGTH_LONG).show();
+			winnerMessage = "Winner - Player 1";
 			score1 += 1;
 			return true;
 		}else if(win == 2){
-			Toast.makeText(getApplicationContext(), "Winner - Player 2", Toast.LENGTH_LONG).show();
+			winnerMessage = "Winner - Player 2";
 			score2 += 1;
 			return true;
 		}
@@ -203,22 +203,20 @@ public class StartNewPlay extends ActionBarActivity {
 		score1 = score2 = 0;
 	}
 	
-	public void compTurn(){
-		int i = 0 , j = 0;
-		while(tttBoard[i][j] != 0){
-			i  = (int) Math.random() * 3;
-			j  = (int) Math.random() * 3;
-		}
-		String gettag = String.valueOf(i) + String.valueOf(j);
-		
-		//View compButton = (View) findViewWithTag(gettag);
+	public void startNewGame(View view){
+		Intent i = new Intent(getApplicationContext (), StartNewPlay.class);
+		i.putExtra(SelectSymbol.Selected_Symbol1, selectSymbol1);
+		i.putExtra(SelectSymbol.Selected_Symbol2, selectSymbol2);
+		startActivity(i);
+		//setButtonActive();
+		//clearArray();
 	}
 	
 	public void selectDialog(){
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(con);
-			alertDialogBuilder.setTitle("What would you like to do?!");
+			alertDialogBuilder.setTitle(winnerMessage);
 			alertDialogBuilder
-				.setMessage("Options!")
+				.setMessage("What would you like to do?!!")
 				.setCancelable(false)
 				.setPositiveButton("New Game",new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int id) {
@@ -236,6 +234,14 @@ public class StartNewPlay extends ActionBarActivity {
  
 				// show it
 				alertDialog.show();
+	}
+	
+	public void onPause() {
+	    super.onPause();
+	}
+	
+	public void onResume() {
+	    super.onResume(); 
 	}
 	
 	public void onDestroy() {

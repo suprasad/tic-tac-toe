@@ -1165,12 +1165,12 @@ containing a value of this type.
         public static final int tableRow3=0x7f050053;
         public static final int tableRow4=0x7f050049;
         public static final int tableRow5=0x7f050057;
-        public static final int textView1=0x7f05003e;
+        public static final int textView1=0x7f05003d;
         public static final int textView2=0x7f050042;
         public static final int textView3=0x7f050043;
         public static final int textView9=0x7f05004a;
         public static final int title=0x7f05002b;
-        public static final int togglebutton=0x7f05003d;
+        public static final int togglebutton=0x7f05003e;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
